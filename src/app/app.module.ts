@@ -56,6 +56,8 @@ const routes: Routes = [
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true,
+        strictActionSerializability: true,
+        strictStateSerializability: true,
       },
     }),
     StoreDevtoolsModule.instrument({
@@ -63,6 +65,10 @@ const routes: Routes = [
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot({
+      stateKey: "router",
+      routerState: RouterState.Minimal,
+    }),
   ],
   bootstrap: [AppComponent],
 })
