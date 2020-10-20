@@ -11,11 +11,13 @@ import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { EditCourseDialogComponent } from "../edit-course-dialog/edit-course-dialog.component";
 import { defaultDialogConfig } from "../shared/default-dialog-config";
 import { CourseEntityService } from "../services/course-entity.service";
+import { ChangeDetectionStrategy } from "@angular/core";
 
 @Component({
   selector: "courses-card-list",
   templateUrl: "./courses-card-list.component.html",
   styleUrls: ["./courses-card-list.component.css"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CoursesCardListComponent implements OnInit {
   @Input()
